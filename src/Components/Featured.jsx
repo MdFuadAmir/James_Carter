@@ -57,7 +57,7 @@ const Featured = () => {
             >
               {/* image */}
               <img
-                loading="lazy"
+                
                 src={item.img}
                 alt={item.title}
                 className="w-full h-80 object-cover group-hover:scale-110 transition duration-500"
