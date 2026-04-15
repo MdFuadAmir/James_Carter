@@ -2,12 +2,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-import img1 from "../assets/w1.jpg";
-import img2 from "../assets/p1.jpg";
-import img3 from "../assets/n1.jpg";
-import img4 from "../assets/w2.jpg";
-import img5 from "../assets/p2.jpg";
-import img6 from "../assets/n2.jpg";
+import img1 from "../../public/Images/w1.png";
+import img2 from "../../public/Images/p1.png";
+import img3 from "../../public/Images/n1.png";
+import img4 from "../../public/Images/w2.png";
+import img5 from "../../public/Images/p2.png";
+import img6 from "../../public/Images/n2.png";
 
 const Portfolio = () => {
   const [active, setActive] = useState("all");

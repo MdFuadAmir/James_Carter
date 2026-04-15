@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import image from "../assets/ownwe2.jpg";
+import image from "../../public/Images/ownwe2.png";
 
 const About = () => {
   return (

@@ -1,19 +1,19 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import image from "../assets/owner1.jpg";
+import image from "../../public/Images/owner1.png";
 import { Link } from "react-scroll";
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center bg-linear-to-br from-emerald-50 via-teal-50 to-green-100 overflow-hidden py-10 md:py-20"
+      className="relative min-h-screen flex items-center bg-linear-to-br from-emerald-50 via-teal-50 to-green-100 overflow-hidden py-20 md:py-24"
     >
       {/* Background blur */}
       <div className="absolute w-72 h-72 bg-emerald-200 rounded-full blur-3xl opacity-40 top-10 left-10"></div>
       <div className="absolute w-72 h-72 bg-teal-200 rounded-full blur-3xl opacity-40 bottom-10 right-10"></div>
 
-      <div className="max-w-7xl mx-auto px-6 w-full z-10">
+      <div className="max-w-6xl mx-auto px-6 w-full z-10">
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* IMAGE FIRST ON MOBILE */}
@@ -26,6 +26,7 @@ const Hero = () => {
             <img
               src={image}
               alt="photographer"
+              loading="lazy"
               className=" w-96    
                 object-contain md:object-cover
                 rounded-2xl shadow-xl
@@ -58,7 +59,7 @@ const Hero = () => {
 
             {/* BUTTONS */}
 
-            <div className="mt-7 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div className="mt-7 flex sm:flex-row gap-4 justify-center md:justify-start">
               <Link
                 to="portfolio"
                 smooth={true}

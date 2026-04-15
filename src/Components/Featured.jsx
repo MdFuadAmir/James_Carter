@@ -1,9 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
-import img1 from "../assets/w3.jpg";
-import img2 from "../assets/p3.jpg";
-import img3 from "../assets/n3.jpg";
+import img1 from "../../public/Images/w3.png";
+import img2 from "../../public/Images/p3.png";
+import img3 from "../../public/Images/n3.png";
 
 const Featured = () => {
   const projects = [
