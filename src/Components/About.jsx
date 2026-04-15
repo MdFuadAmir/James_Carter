@@ -19,6 +19,7 @@ const About = () => {
           <img
             src={image}
             alt="James Carter"
+            loading="lazy"
             className="w-80 md:w-100 rounded-2xl shadow-xl object-cover"
           />
         </motion.div>

@@ -26,7 +26,6 @@ const Hero = () => {
             <img
               src={image}
               alt="photographer"
-              loading="lazy"
               className=" w-96    
                 object-contain md:object-cover
                 rounded-2xl shadow-xl

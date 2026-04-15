@@ -79,6 +79,7 @@ const Portfolio = () => {
               className="relative overflow-hidden rounded-xl shadow-md group"
             >
               <img
+                loading="lazy"
                 src={item.img}
                 alt="portfolio"
                 className="w-full h-72 object-cover group-hover:scale-110 transition duration-500"
