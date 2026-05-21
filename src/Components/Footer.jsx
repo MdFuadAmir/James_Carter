@@ -1,92 +1,211 @@
 import { FiInstagram, FiFacebook, FiTwitter, FiMail } from "react-icons/fi";
+
 import Logo from "../Utils/Logo";
 
 const Footer = () => {
   return (
-    <footer className="bg-linear-to-b from-emerald-100/50 via-emerald-50/40 to-teal-50/60 border-t border-emerald-100 py-14">
-      <div className="max-w-6xl mx-auto px-6">
+    <footer
+      className="
+        relative overflow-hidden
+        bg-linear-to-b
+        from-[#f4fbf7]
+        via-[#eef7f1]
+        to-[#e8f6f0]
+        dark:from-[#071a12]
+        dark:via-[#081d15]
+        dark:to-[#06140f]
+        border-t
+        border-emerald-200/50
+        dark:border-white/10
+        pt-16 pb-8
+        transition-colors duration-300
+      "
+    >
+      {/* BG GLOW */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-emerald-400/10 blur-3xl rounded-full"></div>
+
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-teal-400/10 blur-3xl rounded-full"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* ========================= */}
         {/* TOP GRID */}
+        {/* ========================= */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* BRAND */}
           <div className="md:col-span-2">
             <Logo />
 
-            <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+            <p
+              className="
+                mt-4
+                text-sm leading-relaxed
+                text-emerald-900/70
+                dark:text-white/60
+                max-w-md
+              "
+            >
               Professional photographer specializing in portraits, weddings, and
-              cinematic storytelling. I focus on capturing real emotions with a
-              clean and artistic approach.
+              cinematic storytelling. Capturing real emotions with timeless
+              visuals and artistic direction.
             </p>
-          </div>
 
-          {/* NAV LINKS */}
-          <div>
-            <h3 className="text-slate-900 font-semibold mb-3">Navigation</h3>
-            <div className="flex flex-col gap-2 text-sm">
+            {/* SOCIAL */}
+            <div className="flex items-center gap-3 mt-6">
               <a
-                href="#home"
-                className="text-slate-600 hover:text-emerald-600 transition"
+                href="/"
+                className="
+                  w-11 h-11 rounded-2xl
+                  bg-white dark:bg-white/5
+                  border border-emerald-200/50 dark:border-white/10
+                  flex items-center justify-center
+                  text-slate-700 dark:text-white/70
+                  hover:text-emerald-600
+                  hover:-translate-y-1
+                  transition duration-300
+                "
               >
-                Home
-              </a>
-              <a
-                href="#about"
-                className="text-slate-600 hover:text-emerald-600 transition"
-              >
-                About
-              </a>
-              <a
-                href="#services"
-                className="text-slate-600 hover:text-emerald-600 transition"
-              >
-                Services
-              </a>
-              <a
-                href="#contact"
-                className="text-slate-600 hover:text-emerald-600 transition"
-              >
-                Contact
-              </a>
-            </div>
-          </div>
-
-          {/* CONTACT + SOCIAL */}
-          <div>
-            <h3 className="text-slate-900 font-semibold mb-3">Connect</h3>
-
-            <p className="text-sm text-slate-600">mdfuadamir@email.com</p>
-
-            <div className="flex gap-4 text-lg text-slate-600 mt-4">
-              <a className="hover:text-emerald-600 transition">
                 <FiInstagram />
               </a>
-              <a className="hover:text-emerald-600 transition">
+
+              <a
+                href="/"
+                className="
+                  w-11 h-11 rounded-2xl
+                  bg-white dark:bg-white/5
+                  border border-emerald-200/50 dark:border-white/10
+                  flex items-center justify-center
+                  text-slate-700 dark:text-white/70
+                  hover:text-emerald-600
+                  hover:-translate-y-1
+                  transition duration-300
+                "
+              >
                 <FiFacebook />
               </a>
-              <a className="hover:text-emerald-600 transition">
+
+              <a
+                href="/"
+                className="
+                  w-11 h-11 rounded-2xl
+                  bg-white dark:bg-white/5
+                  border border-emerald-200/50 dark:border-white/10
+                  flex items-center justify-center
+                  text-slate-700 dark:text-white/70
+                  hover:text-emerald-600
+                  hover:-translate-y-1
+                  transition duration-300
+                "
+              >
                 <FiTwitter />
               </a>
+
               <a
                 href="mailto:mdfuadamir@email.com"
-                className="hover:text-emerald-600 transition"
+                className="
+                  w-11 h-11 rounded-2xl
+                  bg-white dark:bg-white/5
+                  border border-emerald-200/50 dark:border-white/10
+                  flex items-center justify-center
+                  text-slate-700 dark:text-white/70
+                  hover:text-emerald-600
+                  hover:-translate-y-1
+                  transition duration-300
+                "
               >
                 <FiMail />
               </a>
             </div>
           </div>
+
+          {/* NAVIGATION */}
+          <div>
+            <h3 className="text-lg font-semibold text-emerald-950 dark:text-white mb-5">
+              Navigation
+            </h3>
+
+            <div className="flex flex-col gap-3">
+              {[
+                "Home",
+                "Portfolio",
+                "About",
+                "Services",
+                "Pricing",
+                "Contact",
+              ].map((item, i) => (
+                <a
+                  key={i}
+                  href={`#${item.toLowerCase()}`}
+                  className="
+                    text-sm
+                    text-emerald-900/70
+                    dark:text-white/60
+                    hover:text-emerald-600
+                    dark:hover:text-emerald-400
+                    transition duration-300
+                    w-fit
+                  "
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* CONTACT */}
+          <div>
+            <h3 className="text-lg font-semibold text-emerald-950 dark:text-white mb-5">
+              Contact
+            </h3>
+
+            <div className="space-y-4">
+              <div>
+                <p className="text-xs uppercase tracking-wider text-emerald-500 mb-1">
+                  Email
+                </p>
+
+                <p className="text-sm text-emerald-900/70 dark:text-white/60">
+                  mdfuadamir@email.com
+                </p>
+              </div>
+
+              <div>
+                <p className="text-xs uppercase tracking-wider text-emerald-500 mb-1">
+                  Phone
+                </p>
+
+                <p className="text-sm text-emerald-900/70 dark:text-white/60">
+                  +880 1705470131
+                </p>
+              </div>
+
+              <div>
+                <p className="text-xs uppercase tracking-wider text-emerald-500 mb-1">
+                  Location
+                </p>
+
+                <p className="text-sm text-emerald-900/70 dark:text-white/60">
+                  Kushtia, Bangladesh
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* DIVIDER */}
-        <div className="my-10 border-t border-slate-200"></div>
+        <div className="my-10 border-t border-emerald-200/50 dark:border-white/10"></div>
 
         {/* BOTTOM */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-slate-500">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-emerald-900/60 dark:text-white/50 text-center md:text-left">
             © {new Date().getFullYear()} Md Fuad Amir. All rights reserved.
           </p>
 
-          <p className="text-sm text-slate-500">
-            Crafted with <span className="text-emerald-600">passion</span> &
-            precision
+          <p className="text-sm text-emerald-900/60 dark:text-white/50 text-center md:text-right">
+            Crafted with{" "}
+            <span className="text-emerald-600 dark:text-emerald-400">
+              passion
+            </span>{" "}
+            & precision
           </p>
         </div>
       </div>

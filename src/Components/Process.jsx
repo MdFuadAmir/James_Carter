@@ -28,61 +28,64 @@ const Process = () => {
   return (
     <section
       id="process"
-      className="py-20 bg-linear-to-b from-teal-50 via-emerald-50 to-green-50"
+      className="
+        py-24 md:py-28
+        bg-[#eef7f1] dark:bg-[#071a12]
+      "
+      aria-label="Photography workflow process section"
     >
       <div className="max-w-4xl mx-auto px-6">
-
-        {/* TITLE */}
-        <motion.div
+        {/* HEADER */}
+        <motion.header
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-emerald-900">
-            How I <span className="text-teal-600">Work</span>
+          {/* H2 = section heading */}
+          <h2 className="text-4xl md:text-5xl font-bold text-emerald-950 dark:text-white">
+            How I <span className="text-emerald-500">Work</span>
           </h2>
 
-          <p className="text-emerald-700/70 mt-3 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            A transparent and well-structured workflow designed to ensure creativity, clear communication, and high-quality photography results that match your expectations.
+          <p className="text-emerald-800/70 dark:text-white/60 mt-3 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+            A transparent and well-structured workflow designed to ensure
+            creativity, clear communication, and high-quality photography
+            results.
           </p>
-        </motion.div>
+        </motion.header>
 
         {/* TIMELINE */}
-        <div className="relative border-l-2 border-emerald-200 pl-6 space-y-12">
-
+        <div className="relative border-l-2 border-emerald-200 dark:border-white/10 pl-6 space-y-12">
           {steps.map((step, i) => (
-            <motion.div
+            <motion.article
               key={i}
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
               className="relative"
             >
+              {/* DOT */}
+              <div
+                className="absolute -left-8.5 top-1 w-4 h-4 bg-emerald-500 dark:bg-emerald-400 rounded-full shadow-md"
+                aria-hidden="true"
+              />
 
-              {/* Circle */}
-              <div className="absolute -left-8.5 top-1 w-4 h-4 bg-emerald-500 rounded-full shadow-md"></div>
+              {/* STEP NUMBER */}
+              <span className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">
+                STEP {step.num}
+              </span>
 
-              {/* Content */}
-              <div>
-                <span className="text-sm font-semibold text-emerald-500">
-                  STEP {step.num}
-                </span>
+              {/* H3 = step title */}
+              <h3 className="text-xl font-semibold text-emerald-950 dark:text-white mt-1">
+                {step.title}
+              </h3>
 
-                <h3 className="text-xl font-semibold text-emerald-900 mt-1">
-                  {step.title}
-                </h3>
-
-                <p className="text-emerald-700/70 mt-3 text-sm md:text-base leading-relaxed">
-                  {step.desc}
-                </p>
-              </div>
-
-            </motion.div>
+              <p className="text-emerald-800/70 dark:text-white/60 mt-3 text-sm md:text-base leading-relaxed">
+                {step.desc}
+              </p>
+            </motion.article>
           ))}
-
         </div>
-
       </div>
     </section>
   );

@@ -1,5 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
 import { FiStar } from "react-icons/fi";
 
 const Testimonials = () => {
@@ -7,77 +5,98 @@ const Testimonials = () => {
     {
       name: "Sarah Williams",
       role: "Bride",
-      text: "James captured our wedding so beautifully. Every emotion, every moment felt alive in the photos. Truly professional work!",
+      text: "James captured our wedding so beautifully. Every emotion felt alive.",
     },
     {
       name: "Michael Brown",
       role: "Model",
-      text: "Amazing portrait session! The lighting, direction, and editing were perfect. I felt very comfortable during the shoot.",
+      text: "Amazing portrait session! Lighting and editing were perfect.",
     },
     {
       name: "Emily Johnson",
       role: "Event Organizer",
-      text: "He covered our corporate event flawlessly. Very punctual, professional, and delivered high-quality photos on time.",
+      text: "Very professional and delivered high-quality photos on time.",
+    },
+    {
+      name: "Daniel Smith",
+      role: "Groom",
+      text: "Incredible storytelling through photography.",
+    },
+    {
+      name: "Olivia Martin",
+      role: "Influencer",
+      text: "The photos were cinematic and exactly my style.",
+    },
+    {
+      name: "John Carter",
+      role: "Business Owner",
+      text: "Perfect corporate shoot. Very clean and professional.",
+    },
+    {
+      name: "Sophia Lee",
+      role: "Bride",
+      text: "Every moment was captured beautifully with emotion.",
+    },
+    {
+      name: "Ethan Walker",
+      role: "Client",
+      text: "Great experience overall. Smooth communication and delivery.",
     },
   ];
 
   return (
     <section
       id="testimonials"
-      className="py-20 bg-linear-to-b from-teal-50 via-emerald-50 to-green-50"
+      className="py-24 bg-[#eef7f1] dark:bg-[#071a12] transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* TITLE */}
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-emerald-900">
-            Words From <span className="text-teal-600">Happy Clients</span>
+        {/* SECTION TITLE */}
+        <header className="text-center mb-14">
+          <h2 className="text-4xl md:text-5xl font-bold text-emerald-950 dark:text-white">
+            Words From <span className="text-emerald-500">Happy Clients</span>
           </h2>
 
-          <p className="text-emerald-700/70 mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            Real experiences shared by clients who trusted my photography to
-            capture their most important moments.
+          <p className="mt-3 text-emerald-800/70 dark:text-white/60 max-w-2xl mx-auto text-sm md:text-base">
+            Real experiences from clients who trusted my photography.
           </p>
-        </motion.div>
+        </header>
 
-        {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {reviews.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="p-6 rounded-2xl bg-white/40 backdrop-blur-md border border-emerald-100 shadow-sm hover:shadow-xl transition"
-            >
-              {/* Stars */}
+        {/* SCROLL WRAPPER */}
+        <div className="relative">
+          <div className="flex gap-6 overflow-x-auto py-6 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden">
+            {reviews.map((item, i) => (
+              <article key={i} className="snap-start shrink-0 w-75 md:w-85">
+                <div className="h-full p-6 rounded-2xl bg-white/60 dark:bg-white/5 border border-emerald-200/40 dark:border-white/10 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400 hover:shadow-lg">
+                  {/* STARS */}
+                  <div
+                    className="flex gap-1 text-emerald-500 mb-3"
+                    aria-label="5 star rating"
+                  >
+                    <FiStar />
+                    <FiStar />
+                    <FiStar />
+                    <FiStar />
+                    <FiStar />
+                  </div>
 
-              {/* Stars */}
-              <div className="flex gap-1 text-yellow-400 mb-3">
-                <FiStar className="fill-yellow-400" />
-                <FiStar className="fill-yellow-400" />
-                <FiStar className="fill-yellow-400" />
-                <FiStar className="fill-yellow-400" />
-                <FiStar className="fill-yellow-400" />
-              </div>
+                  {/* REVIEW TEXT */}
+                  <p className="text-emerald-800/70 dark:text-white/70 text-sm leading-relaxed">
+                    "{item.text}"
+                  </p>
 
-              {/* TEXT */}
-              <p className="text-emerald-800/70 text-sm leading-relaxed">
-                "{item.text}"
-              </p>
-
-              {/* NAME */}
-              <div className="mt-5">
-                <h4 className="font-semibold text-emerald-900">{item.name}</h4>
-                <p className="text-sm text-emerald-600">{item.role}</p>
-              </div>
-            </motion.div>
-          ))}
+                  {/* AUTHOR */}
+                  <div className="mt-5">
+                    <h3 className="font-semibold text-emerald-950 dark:text-white">
+                      {item.name}
+                    </h3>
+                    <p className="text-sm text-emerald-600 dark:text-emerald-400">
+                      {item.role}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

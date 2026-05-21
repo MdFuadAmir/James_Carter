@@ -1,118 +1,201 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { FiCheck } from "react-icons/fi";
+import { FiCheck, FiStar } from "react-icons/fi";
 
 const Pricing = () => {
   const plans = [
     {
-      name: "Basic",
+      name: "Essential Portrait",
       price: "$99",
-      desc: "Perfect for small portrait sessions or personal shoots.",
+      desc: "Perfect for personal portraits and simple creative sessions.",
+      popular: false,
       features: [
-        "1 Hour Photoshoot",
-        "20 Edited Photos",
+        "1 Hour Professional Shoot",
+        "20 High-Resolution Edited Photos",
         "Basic Color Correction",
-        "Online Delivery",
+        "Online Gallery Delivery",
+        "Outdoor / Studio Setup",
       ],
     },
     {
-      name: "Standard",
+      name: "Signature Experience",
       price: "$199",
-      desc: "Best for couples, events, and professional portraits.",
+      desc: "Ideal for couples, lifestyle shoots, and small events.",
+      popular: true,
       features: [
-        "3 Hour Photoshoot",
-        "60 Edited Photos",
-        "Advanced Retouching",
-        "Location Guidance",
-        "Online + HD Delivery",
+        "3 Hour Guided Photoshoot",
+        "60+ Professionally Edited Photos",
+        "Advanced Skin Retouching",
+        "Creative Direction & Posing Help",
+        "Multiple Location Options",
+        "Fast Delivery (Priority Queue)",
       ],
     },
     {
-      name: "Premium",
+      name: "Cinematic Coverage",
       price: "$349",
-      desc: "Full coverage for weddings and large events.",
+      desc: "Full-scale storytelling for weddings and large events.",
+      popular: false,
       features: [
         "Full Day Coverage",
-        "150+ Edited Photos",
-        "Cinematic Editing",
-        "Drone Shots (if available)",
-        "Priority Delivery",
+        "150+ Cinematic Edited Photos",
+        "Professional Color Grading",
+        "Drone / Wide Angle Shots (if available)",
+        "Event Storytelling Sequence",
+        "Express Delivery Option",
       ],
     },
   ];
 
+  const setContactMessage = (message) => {
+    const textarea = document.querySelector('textarea[name="message"]');
+
+    if (textarea) {
+      textarea.value = message;
+
+      textarea.dispatchEvent(new Event("input", { bubbles: true }));
+    }
+
+    // scroll to contact
+    const contact = document.getElementById("contact");
+    if (contact) {
+      contact.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="pricing"
-      className="py-20 bg-linear-to-b from-emerald-50 via-teal-50 to-green-50"
+      className="
+        py-24
+        bg-[#eef7f1] dark:bg-[#071a12]
+        transition-colors duration-300
+      "
+      aria-label="Photography pricing packages section"
     >
       <div className="max-w-7xl mx-auto px-6">
-        {/* TITLE */}
-        <motion.div
+        {/* SECTION HEADER */}
+        <motion.header
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-emerald-900">
-            Pricing <span className="text-teal-600">Plans</span>
+          {/* H2 = section title */}
+          <h2 className="text-4xl md:text-5xl font-bold text-emerald-950 dark:text-white">
+            Photography <span className="text-emerald-500">Packages</span>
           </h2>
 
-          <p className="text-emerald-700/70 mt-3 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            Flexible photography packages designed to fit your needs — from
-            personal portraits to full wedding coverage.
+          <p className="text-emerald-800/70 dark:text-white/60 mt-3 max-w-2xl mx-auto text-sm md:text-base">
+            Flexible packages designed to match your story — from portraits to
+            full cinematic coverage.
           </p>
-        </motion.div>
+        </motion.header>
 
-        {/* CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* CARDS GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8">
           {plans.map((plan, i) => (
-            <motion.div
+            <motion.article
               key={i}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`p-8 rounded-2xl border shadow-sm hover:shadow-xl transition bg-white/40 backdrop-blur-md ${
-                plan.name === "Standard"
-                  ? "border-emerald-400 scale-105"
-                  : "border-emerald-100"
-              }`}
+              transition={{ duration: 0.4, delay: i * 0.12 }}
+              className={`
+                relative p-8 rounded-2xl
+                bg-white/60 dark:bg-white/5
+                backdrop-blur-md
+                border transition-all duration-300
+                hover:shadow-xl hover:-translate-y-1
+
+                ${
+                  plan.popular
+                    ? "border-emerald-500 scale-[1.03]"
+                    : "border-emerald-200/40 dark:border-white/10"
+                }
+              `}
             >
-              {/* NAME */}
-              <h3 className="text-xl font-semibold text-emerald-900">
+              {/* BADGE */}
+              {plan.popular && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <div className="flex items-center gap-1 px-4 py-1 rounded-full bg-emerald-500 text-white text-xs font-medium shadow-md">
+                    <FiStar aria-hidden="true" />
+                    Most Popular
+                  </div>
+                </div>
+              )}
+
+              {/* PLAN NAME = H3 */}
+              <h3 className="text-xl font-semibold text-emerald-950 dark:text-white">
                 {plan.name}
               </h3>
 
               {/* PRICE */}
-              <p className="text-3xl font-bold text-emerald-700 mt-3">
+              <p className="text-3xl font-bold text-emerald-600 mt-3">
                 {plan.price}
               </p>
 
-              {/* DESC */}
-              <p className="text-sm text-emerald-700/70 mt-2">{plan.desc}</p>
+              <p className="text-sm text-emerald-800/70 dark:text-white/60 mt-2">
+                {plan.desc}
+              </p>
 
-              {/* FEATURES */}
-              <ul className="mt-5 space-y-3">
+              {/* FEATURES LIST */}
+              <ul className="mt-6 space-y-3">
                 {plan.features.map((f, idx) => (
                   <li
                     key={idx}
-                    className="flex items-center gap-2 text-sm text-emerald-800"
+                    className="flex items-center gap-2 text-sm text-emerald-900 dark:text-white/80"
                   >
-                    <FiCheck className="text-emerald-500" />
+                    <FiCheck className="text-emerald-500" aria-hidden="true" />
                     {f}
                   </li>
                 ))}
               </ul>
 
-              {/* BUTTON */}
-
+              {/* CTA */}
+              {/* <a
+                href="#contact"
+                className="
+                  mt-8 w-full inline-block text-center
+                  py-3 rounded-full
+                  bg-emerald-600 hover:bg-emerald-700
+                  text-white font-medium
+                  transition-all duration-300
+                "
+              >
+                Book Session
+              </a> */}
               <a
                 href="#contact"
-                className="mt-6 w-full inline-block text-center py-3 rounded-full bg-linear-to-r from-emerald-500 to-teal-500 text-white hover:scale-105 transition"
+                onClick={() => {
+                  const message = `Hi James Carter,
+
+I am interested in your "${plan.name}" package.
+
+📸 Package Details:
+- Price: ${plan.price}
+- Description: ${plan.desc}
+
+✨ Included Features:
+${plan.features.map((f) => `- ${f}`).join("\n")}
+
+I would like to book this package. Please share availability and next steps.
+
+Looking forward to your response.`;
+
+                  setContactMessage(message);
+                }}
+                className="
+    mt-8 w-full inline-block text-center
+    py-3 rounded-full
+    bg-emerald-600 hover:bg-emerald-700
+    text-white font-medium
+    transition-all duration-300
+    cursor-pointer
+  "
               >
-                Book Now
+                Book Session
               </a>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>

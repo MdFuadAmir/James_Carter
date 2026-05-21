@@ -1,9 +1,6 @@
-// eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
-
-import img1 from "../../public/Images/w3.png";
-import img2 from "../../public/Images/p3.png";
-import img3 from "../../public/Images/n3.png";
+import img1 from "../assets/p1.webp";
+import img2 from "../assets/p2.webp";
+import img3 from "../assets/p3.webp";
 
 const Featured = () => {
   const projects = [
@@ -25,53 +22,86 @@ const Featured = () => {
   ];
 
   return (
-    <section className="py-20 bg-linear-to-b from-teal-50 via-emerald-50 to-green-50">
+    <section
+      id="featured"
+      aria-labelledby="featured-heading"
+      className="
+        py-24 md:py-28
+        bg-[#eef7f1] dark:bg-[#071a12]"
+    >
       <div className="max-w-7xl mx-auto px-6">
-        {/* Title */}
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-emerald-900">
-            Moments That <span className="text-teal-600">Matter Most</span>
+        {/* TITLE */}
+        <header className="text-center mb-12">
+          <h2
+            id="featured-heading"
+            className="text-4xl md:text-5xl font-bold text-emerald-950 dark:text-white"
+          >
+            Moments That <span className="text-emerald-500">Matter Most</span>
           </h2>
 
-          <p className="text-emerald-700/70 mt-3 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-            A handpicked selection of my strongest visual stories — where
-            emotion, light, and timing come together perfectly.
+          <p className="mt-3 text-emerald-900/70 dark:text-white/60 max-w-xl mx-auto text-sm md:text-base">
+            A handpicked selection of visual stories captured with emotion.
           </p>
-        </motion.div>
+        </header>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((item, i) => (
-            <motion.div
+            <article
               key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="group relative rounded-2xl overflow-hidden shadow-md"
+              className="
+                group relative overflow-hidden
+                rounded-2xl
+                border border-emerald-200/40 dark:border-white/10
+                bg-white/70 dark:bg-white/5
+                transition-all duration-300
+              "
             >
-              {/* image */}
-              <img
-                
-                src={item.img}
-                alt={item.title}
-                className="w-full h-80 object-cover group-hover:scale-110 transition duration-500"
-              />
+              {/* IMAGE */}
+              <div className="h-80 overflow-hidden">
+                <img
+                  loading="lazy"
+                  src={item.img}
+                  alt={`${item.title} photography project`}
+                  className="
+                    w-full h-full object-cover
+                    transition duration-300
+                    group-hover:scale-105
+                  "
+                />
+              </div>
 
-              {/* overlay */}
-              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition flex flex-col justify-end p-5">
-                <h3 className="text-white text-lg font-semibold">
+              {/* OVERLAY */}
+              <div
+                className="
+                  absolute inset-0
+                  bg-black/0 group-hover:bg-black/40
+                  transition duration-300
+                  flex flex-col justify-end
+                  p-5
+                "
+              >
+                <h3
+                  className="
+                    text-white text-lg font-semibold
+                    opacity-0 group-hover:opacity-100
+                    transition duration-300
+                  "
+                >
                   {item.title}
                 </h3>
 
-                <p className="text-white/80 text-sm mt-1">{item.desc}</p>
+                <p
+                  className="
+                    text-white/80 text-sm mt-1
+                    opacity-0 group-hover:opacity-100
+                    transition duration-300
+                  "
+                >
+                  {item.desc}
+                </p>
               </div>
-            </motion.div>
+            </article>
           ))}
         </div>
       </div>

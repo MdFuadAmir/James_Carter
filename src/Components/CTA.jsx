@@ -3,56 +3,110 @@ import { motion } from "framer-motion";
 
 const CTA = () => {
   return (
-    <section className="py-20 bg-linear-to-r from-emerald-600 via-teal-600 to-green-600 relative overflow-hidden">
-      {/* background glow */}
-      <div className="absolute w-72 h-72 bg-white/20 rounded-full blur-3xl top-10 left-10"></div>
-      <div className="absolute w-72 h-72 bg-white/20 rounded-full blur-3xl bottom-10 right-10"></div>
+    <section
+      id="cta"
+      aria-labelledby="cta-title"
+      className="
+        relative overflow-hidden
+        py-24
+        bg-[#eaf6f0] dark:bg-[#071a12]
+        transition-colors duration-300
+      "
+    >
+      {/* SOFT BACKGROUND SHAPES */}
+      <div className="absolute -top-20 -left-20 w-80 h-80 bg-emerald-300/20 dark:bg-emerald-500/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-teal-300/20 dark:bg-teal-500/10 rounded-full blur-3xl" />
 
-      <div className="max-w-5xl mx-auto px-6 text-center text-white relative z-10">
+      <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
         {/* TITLE */}
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
+          id="cta-title"
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold"
+          className="
+            text-3xl md:text-5xl font-bold
+            text-emerald-950 dark:text-white
+            leading-tight
+          "
         >
-          Let’s Capture Your{" "}
-          <span className="text-emerald-100">Perfect Moment</span>
+          Let’s Capture Your <br />
+          <span className="text-emerald-500">Perfect Moments</span>
         </motion.h2>
 
         {/* SUBTITLE */}
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-4 text-white/80 max-w-2xl mx-auto text-sm md:text-base leading-relaxed"
+          className="
+            mt-5 max-w-2xl mx-auto
+            text-emerald-800/70 dark:text-white/60
+            text-sm md:text-base leading-relaxed
+          "
         >
-          Whether it’s a wedding, portrait, or creative shoot — I’m here to turn
-          your moments into timeless memories with professional photography and
-          storytelling.
+          Whether it’s weddings, portraits, or creative shoots — I craft
+          cinematic visuals that turn your emotions into timeless storytelling.
         </motion.p>
 
         {/* BUTTONS */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-8 flex gap-4 justify-center"
+          className="mt-10 flex flex-wrap gap-4 justify-center"
         >
-          <a
-            href="#contact"
-            className="px-6 py-3 rounded-full bg-white text-emerald-700 font-medium hover:scale-105 transition"
-          >
-            Book a Session
-          </a>
+          {/* PRIMARY BUTTON */}
 
           <a
+            href="#contact"
+            onClick={() => {
+              const textarea = document.querySelector(
+                'textarea[name="message"]',
+              );
+              if (textarea) {
+                textarea.value = `Hi James Carter,
+
+I would love to book a professional photography session with you.
+
+I'm interested in capturing beautiful, cinematic moments — whether it's portraits, lifestyle, or a special event. Please let me know your availability, packages, and pricing details.
+
+Looking forward to working with you.`;
+                textarea.dispatchEvent(new Event("input", { bubbles: true }));
+              }
+            }}
+            className="
+              px-7 py-3.5 rounded-full
+              bg-emerald-600 hover:bg-emerald-700
+              text-white font-medium
+              transition-all duration-300
+              hover:-translate-y-1
+              shadow-md hover:shadow-lg
+            "
+          >
+            Book Session
+          </a>
+
+          {/* SECONDARY BUTTON */}
+          <a
             href="#portfolio"
-            className="px-6 py-3 rounded-full border border-white text-white hover:bg-white/20 transition"
+            className="
+              px-7 py-3.5 rounded-full
+              border border-emerald-300 dark:border-white/15
+              text-emerald-800 dark:text-white
+              hover:bg-white/50 dark:hover:bg-white/10
+              transition-all duration-300
+              hover:-translate-y-1
+            "
           >
             View Portfolio
           </a>
         </motion.div>
+
+        {/* TRUST LINE */}
+        <p className="mt-10 text-xs md:text-sm text-emerald-700/60 dark:text-white/40">
+          ✨ Professional editing • Fast delivery • Cinematic storytelling
+        </p>
       </div>
     </section>
   );

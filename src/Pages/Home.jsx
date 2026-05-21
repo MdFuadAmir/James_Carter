@@ -10,22 +10,25 @@ import Pricing from "../Components/Pricing";
 import Process from "../Components/Process";
 import Services from "../Components/Services";
 import Testmonials from "../Components/Testmonials";
+import SEO from "../Utils/SEO";
 
 const Home = () => {
   return (
     <div className="overflow-hidden">
-      <Navbar />
+      <SEO
+        title="James Carter | Wedding & Portrait Photographer"
+        description="Professional photographer specializing in weddings, portraits, and cinematic storytelling."
+      />
       <Hero />
-      <Portfolio />
       <Featured />
       <About />
       <Services />
+      <Portfolio />
       <Process />
       <Pricing />
       <Testmonials />
       <CTA />
       <Contact />
-      <Footer />
     </div>
   );
 };
