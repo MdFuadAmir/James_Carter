@@ -5,8 +5,8 @@ import { Helmet } from "react-helmet-async";
 const SEO = ({
   title = "James Carter | Professional Photographer",
   description = "Professional wedding, portrait, and lifestyle photographer capturing timeless cinematic moments.",
-  image = "/preview.png",
-  url = "https://yourdomain.com",
+  image = "https://i.ibb.co.com/WNqYCBcV/fuad.png",
+  url = "https://james-carter-ivory.vercel.app",
 }) => {
   return (
     <Helmet>

@@ -135,7 +135,7 @@ Looking forward to working with you.`;
               className="
               fixed top-0 right-0 z-50
               w-[80%] max-w-sm
-              min-h-screen
+              h-fit
               bg-white dark:bg-[#071510]
               border-l border-emerald-200/20 dark:border-emerald-500/10
               shadow-2xl

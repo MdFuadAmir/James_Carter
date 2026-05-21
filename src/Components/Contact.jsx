@@ -178,7 +178,7 @@ const Contact = () => {
             {/* MESSAGE */}
             <div className="mt-4">
               <textarea
-                rows="6"
+                rows="8"
                 placeholder="Write your message..."
                 {...register("message", { required: "Message is required" })}
                 className="w-full px-5 py-4 rounded-2xl resize-none bg-white dark:bg-[#0d2219] border border-emerald-200 dark:border-white/10 text-emerald-950 dark:text-white"
